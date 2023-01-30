@@ -1,11 +1,30 @@
+// @flow
+import React, { useState, useEffect } from 'react';
 import './App.css';
 
-import React, { useState, useEffect } from 'react';
+type Person = {
+  name: {
+    first: string,
+    last: string
+  },
+  email: string,
+  location: {
+    city: string,
+    country: string
+  },
+  phone: string,
+  picture: {
+    large: string
+  },
+  dob: {
+    age: number
+  }
+};
 
 function App() {
-  const [person, setPerson] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [person, setPerson] = useState(null: ?Person);
+  const [loading, setLoading] = useState(true: boolean);
+  const [error, setError] = useState(null: ?Error);
 
   useEffect(() => {
     fetch('https://randomuser.me/api/')

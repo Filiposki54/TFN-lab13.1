@@ -1,0 +1,19 @@
+[flow]
+
+# Flow version to use
+version = 0.xx.x
+
+# Analyses all files in the project
+all = true
+
+# Ignore specific directories
+ignores = node_modules, __tests__, flow-typed
+
+# Specify library paths
+[libs]
+
+# Project-specific libs
+./libs = ./libs
+
+# Global flow-typed libs
+./flow-typed = ./flow-typed
