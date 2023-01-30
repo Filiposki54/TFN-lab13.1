@@ -45,10 +45,7 @@ function App() {
 
   return (
     <div>
-      <img
-        src={person.picture.large}
-        alt={`${person.name.first} ${person.name.last}`}
-      />
+      <img src={person.picture.large} alt={`${person.name.first} ${person.name.last}`} />
       <h1>{`${person.name.first} ${person.name.last}`}</h1>
       <p>{person.email}</p>
       <p>
@@ -60,5 +57,35 @@ function App() {
     </div>
   );
 }
+App.propTypes = {
+  person: PropTypes.shape({
+    name: PropTypes.shape({
+      first: PropTypes.string,
+      last: PropTypes.string,
+    }),
+    email: PropTypes.string,
+    location: PropTypes.shape({
+      city: PropTypes.string,
+      country: PropTypes.string,
+    }),
+    picture: PropTypes.shape({
+      large: PropTypes.string,
+    }),
+    phone: PropTypes.string,
+    dob: PropTypes.shape({
+      age: PropTypes.number,
+    }),
+  }),
+  loading: PropTypes.bool,
+  error: PropTypes.instanceOf(Error),
+  handleClick: PropTypes.func,
+};
+
+App.defaultProps = {
+  person: null,
+  loading: true,
+  error: null,
+  handleClick: () => {},
+};
 
 export default App;
